@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chemical ML Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Chemical ML Detection</h2>
+
+<input type="file" id="imageInput" accept="image/*"><br><br>
+
+<label>Full bottle capacity (mL):</label>
+<input type="number" id="fullMl" placeholder="1000"><br><br>
+
+<label>Full bottle height (mm):</label>
+<input type="number" id="fullHeight" placeholder="200"><br><br>
+
+<button onclick="analyze()">Analyze</button>
+
+<h3>Result:</h3>
+<p id="output"></p>
+
+<script src="script.js"></script>
+
+</body>
+</html>
