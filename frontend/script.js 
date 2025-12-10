@@ -1,0 +1,25 @@
+async function analyze() {
+    let file = document.getElementById("imageInput").files[0];
+    if (!file) {
+        alert("Please upload an image");
+        return;
+    }
+
+    const fullMl = document.getElementById("fullMl").value;
+    const fullHeight = document.getElementById("fullHeight").value;
+
+    let form = new FormData();
+    form.append("image", file);
+    form.append("fullMl", fullMl);
+    form.append("fullHeight", fullHeight);
+
+    let res = await fetch("YOUR_BACKEND_URL/analyze", {
+        method: "POST",
+        body: form
+    });
+
+    let data = await res.json();
+    document.getElementById("output").innerHTML =
+        "<b>Chemical Name:</b> " + data.chemical +
+        "<br><b>Estimated mL:</b> " + data.ml;
+}
